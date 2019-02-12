@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>VueJS Playground. Components + data as funtion()</title>
+    </head>
+    <body>
+        <div id="app">
+            <custom-article></custom-article>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            Vue.component('custom-article', {
+                template: `<article>{{ datacontent }}</article>`,
+                data: function() {
+                    return { datacontent: 'Este mensaje fue generado a través de VUE componentes/props'};
+                },
+            });
+
+
+            var app = new Vue({
+                el: '#app',
+            });
+        </script>
+    </body>
+</html>

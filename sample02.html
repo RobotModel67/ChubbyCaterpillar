@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>v-on</title>
+    </head>
+    <body>
+        <div id="app">
+            <button v-on:click='add'>Add One</button>
+            <p>Yo click {{ counter }} times!</p>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                },
+                methods: {
+                    add: function() {
+                            return this.counter++;
+                        },
+                }
+            });
+        </script>
+    </body>
+</html>

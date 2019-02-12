@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+
+<body>
+    <h4>Referencia a la libreria. Instanciación aplicación. Data and Tags</h4>
+    <div id="app">
+        <div>{{ message }}</div>
+        <div>{{ price }}</div>
+        <div>{{ details }}</div>
+    </div>
+    <p>Now! En la consola pruebe digitando: app.message = "Bye!"</p>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello!',
+                price: 15 + 3,
+                details: ['one','two','three']
+            }
+        });
+    </script>
+</body>
+
+</html>

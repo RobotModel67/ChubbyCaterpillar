@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Basic binding</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>{{ heading1 }}</h1>
+            <h2>{{ heading2 }}</h2>
+            <p>{{ paragraph1 }} is funny!</p>
+            <input type="text" v-model='paragraph1'/>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        heading1: "Qué es ChubbyCaterpillar?",
+                        heading2: "Es el playground para aprende Vuejs",
+                        paragraph1: "VueJS"
+                    }
+                },
+            });
+        </script>
+    </body>
+</html>

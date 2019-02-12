@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>VueJS Playground. Simple web page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class=row>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">TITLE</h5>
+                        <p class="card-text">
+                            sflk gqegkqeogk  rgkoerkg r gk rok
+                        </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">TITLE</h5>
+                            <p class="card-text">
+                                jkjfgj jro ir goi rfgkkjjjj
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>            
+        </div>
+
+
+        <div id="app">
+            <div class="container">
+                <the-header></the-header>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <the-card></the-card>
+                        </div>
+                        <div class="col-sm-6">
+                            <the-card></the-card>
+                        </div>
+                    </div>
+                <the-footer></the-footer>            
+            </div>
+        </div>
+
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            Vue.component('the-card', {
+                template: `
+                    <div class="card">
+                        <div class="card-body" v-for="customCard in customCards">
+                            <h5 class="card-title">{{customCard.heading}}</h5>
+                            <p class="card-text">
+                                    {{customCard.text}}
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>`,
+                data: function() {
+                    return {
+                        customCards: [{
+                            heading: 'John Doe',
+                            text: 'john.doe@acme.org'
+                        },
+                        {
+                            heading: 'Anna Frank',
+                            text: 'anna.frank@berlin.gm'
+                        }]
+                    }
+                }
+            });
+
+            Vue.component('the-header', {
+                template: '<h1 class="text-success">{{ header }}</h1>',
+                data: function() {
+                    return {
+                        header: 'Just our example header',
+                    }
+                }
+            });
+
+            Vue.component('the-footer', {
+                template: '<h1 class="css-footer-class">Our example footer goes here!</h1>',
+            });
+
+            var app = new Vue({
+                el: '#app',
+                data: function() {
+                        return {};
+                    }
+            });
+        </script>
+    </body>
+</html>

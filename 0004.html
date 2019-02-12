@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+
+<body>
+    <h4>Directives: v-html v-bind v-if v-else</h4>
+    <div id="app">
+        <div v-html='message'></div>
+        <div v-if="isVisible">
+            <h2>Now you see me</h2>
+        </div>
+        <div v-else>
+            Now you don't
+        </div>
+        <img v-bind:src="imageSource">
+        <div v-show="isVisible">
+            <h2>Show is some diferent</h2>
+        </div>
+
+    </div>
+    <p>You should try and avoid adding HTML to your Vue instance, as it starts to mix up the
+        View in the ViewModel and Model of our MVVM structure. There is also the danger you
+        output an invalid HTML tag inside another. You should only use v-html with data you
+        trust, because using it with an external API could be a security concern as it would allow
+        the API to have control over your application. A potentially malicious API could use vhtml
+        to inject undesired content and HTML. Only use v-html with data you can fully
+        trust.
+    </p>
+    <p>Try! on console type: app.isVisible = !app.isVisible</p>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '<h1>Hello world!<h1>',
+                imageSource: 'http://via.placeholder.com/350x150',
+                isVisible: false
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

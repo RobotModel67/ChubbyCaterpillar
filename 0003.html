@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+
+<body>
+    <h4>Methods and reusable functions</h4>
+    <div id="app">
+        <div>{{ addCurrency(calculateSalesTax(shirtPrice)) }}</div>
+    </div>
+    <p>Now! En la consola pruebe digitando: app.shirtPrice = 10</p>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#app',
+            data: {
+                shirtPrice: 25,
+                hatPrice: 10,
+                currency: '$',
+                salesTax: 16
+            },
+            methods: {
+                calculateSalesTax(price) {
+                    // Work out the price of the item including sales tax
+                    return parseFloat(
+                        Math.round((this.salesTax / 100) * price) +
+                        price).toFixed(2);
+                },
+                addCurrency(price) {
+                    return this.currency + price;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

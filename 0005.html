@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .active {background-color: powderblue;}
+        .inactive {background-color: brown;}
+    </style>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+</head>
+
+<body>
+    <h4>Directives: v-for v-bind (class)</h4>
+
+    <h2>Simple v-for</h2>
+    <div id="app">
+        <ul>
+            <li v-for="person in people">
+                {{ person }}
+            </li>
+        </ul>
+
+        <h2>Attibutes in v-for</h2>
+        <table>
+            <tr v-for="person in people" v-bind:class="person.isActive ? 'active' : 'inactive'">
+                <td>{{ person.name }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.balance }}</td>
+                <td>{{ person.registered }}</td>
+                <td>{{ (person.isActive) ? 'Active' : 'Inactive' }}</td>
+                <td>{{ activeStatus(person) }}</td>
+                <td><a v-bind:href="'mailto:' + person.email">{{ person.email }}</a></td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#app',
+            data: {
+                people: [{
+                        name: 'Jorge Luis',
+                        email: 'obiware@gmail.com',
+                        balance: 51
+                    },
+                    {
+                        name: 'Olga Lucia',
+                        email: 'olgaucialozano@hotmail.com',
+                        balance: 50,
+                        isActive: true
+                    },
+                    {
+                        name: 'Jorge Santiago',
+                        email: 'santi@hotmail.com',
+                        balance: 31
+                    },
+                    {
+                        name: 'Maria Victoria',
+                        email: 'victoria@comeva.com',
+                        balance: 28
+                    },
+                    {
+                        name: 'Lina Fernanda',
+                        email: 'linamouse@gmail.com',
+                        balance: 22
+                    },
+                ]
+
+            },
+            methods: {
+                activeStatus(person) {
+                    return (person.isActive) ? 'Activito' : 'Inactivito';
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

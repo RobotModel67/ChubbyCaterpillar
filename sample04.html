@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>VueJS Playground. Components</title>
+    </head>
+    <body>
+        <div id="app">
+            <custom-article v-bind:content='datacontent'></custom-article>
+            <custom-article-2 :message-being-passed='datacontent2'></custom-article-2>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            Vue.component('custom-article', {
+                props: ['content'],
+                template: `<article>{{ content }}</article>`,
+            });
+
+            Vue.component('custom-article-2', {
+                props: { 
+                    messageBeingPassed : {
+                        type: String,
+                        required: true,
+                        default: '... no han dicho nada... !!?'
+                    }
+                },
+                template: `<article><b>{{ messageBeingPassed }}</b></article>`,
+            });
+
+
+            var app = new Vue({
+                el: '#app',
+                data: function() {
+                    return {datacontent: 'Este mensaje fue generado a través de VUE componentes/props'};
+                },
+            });
+        </script>
+    </body>
+</html>
