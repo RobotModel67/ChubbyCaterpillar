@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueJs Up and Running</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>Using components</h1>
+    <div id="app">
+        <display-number :number="4"></display-number>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        import DisplayNumber from './display-number.vue';
+
+        new Vue({
+            el: '#app',
+            components: {
+                DisplayNumber
+            }
+        });
+    </script>
+</body>
+
+</html>

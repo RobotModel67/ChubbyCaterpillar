@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vuex!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css">-->
+
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <label for="searchText">Search: </label>
+            <input type="text" name="searchText" id="" v-model="searchText" v-on:keyup.enter.esc="search">
+            <button v-on:click="search">Search</button>
+            <h5>Results: <small>{{ results.count }}</small></h5>
+            <ul>
+                <li v-for="result in results.results">
+                    {{result.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const App = new Vue({
+            el: '#app',
+            data: {
+                searchText: 'Star Wars API',
+                results: [],
+                history: {}
+            },
+            methods: {
+                search: async function() {
+                    /*
+                    axios
+                    .get(`https://swapi.co/api/starships/?search=${this.searchText}`)
+                    .then(response => {
+                            this.results = response.data;
+                            this.history[this.searchText] = this.results;
+                        });
+                    }
+                    */
+                    const response = await axios.get(`https://swapi.co/api/starships/?search=${this.searchText}`);
+                    this.results = response.data;
+                    this.history[this.searchText] = this.results;
+                }                    
+            },
+            watch: {
+                // El watch originar 'searchText' se suprimió para probar los eventos
+                searchText2 : {
+                    handler: function(newSearchtext, oldSearchText) {
+                        if (newSearchtext == "") {
+                            this.results = [];
+                            
+                        } else {
+                            if (this.history[newSearchtext]) {
+                                console.log('from cache...');
+                                this.results = this.history[newSearchtext]
+                            } else 
+                            {
+                                this.search();
+                            }
+                        }
+                    },
+                    deep: true,
+                    inmediate: true
+                }
+            },
+        });
+    </script>
+
+</body>
+
+</html>

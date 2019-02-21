@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Getting to Know Vue.js Using computed</title>
+</head>
+
+<body>
+    <h1>Basic scaffold</h1>
+    <!-- Div to Mount App -->
+    <div id="app">
+        <input type="text" name="" id="" v-model="propertyName">
+        <div> {{ capitelizedText }}  </div>
+    </div>
+
+    <!-- Reference to Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Script Element for our first App -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                propertyName: 'Hello from Getting to Know Vue.js!'
+            },
+            computed: {
+                capitelizedText() {
+                    return this.propertyName.toLowerCase();
+                }
+            },
+
+        });
+    </script>
+</body>
+
+</html>

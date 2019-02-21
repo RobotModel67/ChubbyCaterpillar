@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .active {background-color: powderblue;}
+        .inactive {background-color: brown;}
+    </style>
+    <title>Getting to Know Vue.js Using v-bind</title>
+</head>
+
+<body>
+    <h1>Basic scaffold</h1>
+    <!-- Div to Mount App -->
+    <div id="app">
+        <input type="text" name="" id="" v-model="value1">
+        <input type="text" name="" id="" v-model="value2">
+        <div v-bind:class="state"> {{ add(value1, value2) }} </div>
+    </div>
+
+    <!-- Reference to Vue.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Script Element for our first App -->
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                value1: 0,
+                value2: 0,
+            },
+            methods: {
+                add(a, b) {
+                    return parseInt(a) + parseInt(b);
+                }
+            },
+            computed:{
+                state() {
+                    if (this.add(this.value1, this.value2) > 100) {
+                        return 'inactive';
+                    } else {
+                        return 'active';
+                    }
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

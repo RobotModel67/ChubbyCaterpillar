@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueJs Up and Running</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <div id="app">
+        <p>{{ seconds }} seconds have elapsed since you opened the page.</p>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                seconds: 0
+            },
+            created() {
+                console.log('starting...');
+                setInterval(() => {
+                    this.seconds++;
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>

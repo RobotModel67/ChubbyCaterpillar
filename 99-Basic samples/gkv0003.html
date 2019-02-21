@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h1>Basic scaffold with template</h1>
+    <h1>Basic scaffold using a script template</h1>
     <!-- Div to Mount App -->
     <div id="app">
         
@@ -14,14 +14,21 @@
 
     <!-- Reference to Vue.js library -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script id="myTemplate" type="x-template">
+            <div>
+            From Script Element Template: {{ propertyName }}
+            </div>
+    </script>
+
     <!-- Script Element for our first App -->
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                propertyName: 'Hello from Getting to Know Vue.js!'
+                propertyName: 'Hello from Getting to Know Vue.js! Using a template!'
             },
-            template: '<h2>{{ propertyName }}</h2>'
+            template: '#myTemplate'
         });
     </script>
 </body>
