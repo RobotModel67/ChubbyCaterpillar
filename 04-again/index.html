@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <div id="app">
         {{msg}} <span v-bind:title="message">
             Hover your mouse over me for a few seconds
@@ -18,7 +17,7 @@
         </span>
         <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
     </div>
-
+    
     <script>
         Vue.component('todo-item', {
             props: ['todo'],

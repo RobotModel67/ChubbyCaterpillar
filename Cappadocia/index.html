@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VueJS Up and Running</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h1 class="ui center aligned header">{{ heading }}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th @click="sortBy = 'firstName'">First Name</th>
+                    <th @click="sortBy = 'lastName'">Last Name</th>
+                    <th @click="sortBy = 'email'">Email</th>
+                    <th @click="sortBy = 'phone'">Phone</th>
+                    <th @click="sortBy = 'department'">Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(employee, index) in sortedEmployees" :key="index">
+                    <td>
+                        <img :src="employee.photoUrl" class="ui mini rounded image" />
+                    </td>
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.phone }}</td>
+                    <td>{{ employee.department }}</td>
+                </tr>
+                <tr vif="employees.length === 0">
+                    <td colspan="6">No employees found</td>
+                </tr>
+            </tbody>
+        </table>
+        <button @click="heading = 'Hello World!'">Click Me</button>
+        <button @mousedown="updateStatus" @contextmenu.prevent="">Toggle Me!</button>
+        <p>{{ status }}</p>
+
+    </div>
+
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- production version, optimized for size and speed -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
+
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                heading: "Staff Directory Now",
+                sortBy: "firstName",
+                employees: [{
+                        "id": 1,
+                        "firstName": "amelia",
+                        "lastName": "austin",
+                        "photoUrl": "https://randomuser.me/api/portraits/thumb/women/9.jpg",
+                        "email": "amelia.austin@example.com",
+                        "phone": "(651)5073705",
+                        "department": "Engineering"
+                    },
+                    {
+                        "id": 2,
+                        "firstName": "bobbie",
+                        "lastName": "murphy",
+                        "photoUrl": "https://randomuser.me/api/portraits/thumb/women/79.jpg",
+                        "email": "bobbie.murphy@example.com",
+                        "phone": "(225)6677604",
+                        "department": "Management"
+                    }
+                ],
+                status: ""
+            },
+            methods: {
+                updateStatus(event) {
+                    const buttons = ['left', 'middle', 'right'];
+                    this.status = `You clicked the ${buttons[event.button]} button.`;
+                }
+            },
+            computed: {
+                sortedEmployees() {
+                    return this.employees.sort((a, b) => a[this.sortBy].localeCompare(b[this.sortBy]))
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

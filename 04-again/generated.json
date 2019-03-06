@@ -1,0 +1,47 @@
+[
+  {
+    "index": 0,
+    "guid": "e41fbf06-623f-4b4d-b46a-7870f91af0c7",
+    "isActive": true,
+    "balance": 2351.3,
+    "name": "Effie Dodson",
+    "email": "effiedodson@zytrek.com",
+    "registered": "201710-27T08:12:23"
+  },
+  {
+    "index": 1,
+    "guid": "76a347fb-db95-4db9-9124-f7ba4557229f",
+    "isActive": true,
+    "balance": 3386.17,
+    "name": "Barbra Terry",
+    "email": "barbraterry@zytrek.com",
+    "registered": "201602-06T08:11:33"
+  },
+  {
+    "index": 2,
+    "guid": "dacbe62c-7831-433c-9822-080354131ef2",
+    "isActive": true,
+    "balance": 1502.88,
+    "name": "Darla Barker",
+    "email": "darlabarker@zytrek.com",
+    "registered": "201510-19T07:46:18"
+  },
+  {
+    "index": 3,
+    "guid": "8cb29464-dae8-4a61-ab16-2b3c76f9037f",
+    "isActive": true,
+    "balance": 2442.12,
+    "name": "Ernestine Rodriguez",
+    "email": "ernestinerodriguez@zytrek.com",
+    "registered": "201601-02T06:00:36"
+  },
+  {
+    "index": 4,
+    "guid": "6bfb5129-e2bb-41f8-a47f-39f27fdfbc45",
+    "isActive": true,
+    "balance": 1189.72,
+    "name": "Tammie Key",
+    "email": "tammiekey@zytrek.com",
+    "registered": "201510-26T06:36:58"
+  }
+]
